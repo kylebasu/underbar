@@ -94,8 +94,14 @@
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
-    // TIP: see if you can re-use _.filter() here, without simply
-    // copying code in and modifying it
+    var newarr = _.filter(collection, test)
+    var newarr1 = []
+    _.each(collection, function(item){
+      if (_.indexOf(newarr, item) == -1) {
+        newarr1.push(item)
+      }
+    })
+    return newarr1
   };
 
   // Produce a duplicate-free version of the array.

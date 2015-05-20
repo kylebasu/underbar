@@ -106,6 +106,13 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var arr2 = [];
+    _.each(array, function(item){
+      if (_.indexOf(arr2, item) == -1){
+        arr2.push(item);
+      }
+    })
+    return arr2
   };
 
 

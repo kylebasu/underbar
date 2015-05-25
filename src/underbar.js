@@ -206,7 +206,14 @@
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = function(collection, iterator) {
-    // TIP: There's a very clever way to re-use every() here.
+    return _.reduce(collection, function(passTest, item) {
+      if (passTest) {
+        return true;
+      }else if (iterator == undefined){
+        return Boolean(item)
+      }
+      return Boolean(iterator(item));
+    }, false);
   };
 
 
